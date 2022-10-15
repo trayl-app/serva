@@ -8,21 +8,24 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "serva",
-            targets: ["serva"]),
+            name: "FirebaseAuthService",
+            targets: ["FirebaseAuthService"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+        .package(
+            name: "Firebase",
+            url: "https://github.com/firebase/firebase-ios-sdk.git",
+            .upToNextMajor(from: "9.0.0")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "serva",
-            dependencies: []),
+            name: "FirebaseAuthService",
+            dependencies: [
+                .product(name: "FirebaseAuth", package: "Firebase"),
+            ]),
         .testTarget(
-            name: "servaTests",
-            dependencies: ["serva"]),
-    ]
-)
+            name: "FirebaseAuthServiceTests",
+            dependencies: ["FirebaseAuthService"]),
+    ])
