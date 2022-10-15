@@ -1,6 +1,6 @@
 import FirebaseAuth
 
-public final class FirebaseAuthService {
+public final class FirebaseAuthService: FirebaseAuthServiceProtocol {
     public init() {}
 
     public func createFirebaseUser(

@@ -10,6 +10,7 @@ let package = Package(
         .library(
             name: "FirebaseAuthService",
             targets: ["FirebaseAuthService"]),
+        .library(name: "RestService", targets: ["RestService"]),
     ],
     dependencies: [
         .package(
@@ -18,8 +19,6 @@ let package = Package(
             .upToNextMajor(from: "9.0.0")),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "FirebaseAuthService",
             dependencies: [
@@ -28,4 +27,8 @@ let package = Package(
         .testTarget(
             name: "FirebaseAuthServiceTests",
             dependencies: ["FirebaseAuthService"]),
+        .target(name: "RestService"),
+        .testTarget(
+            name: "RestServiceTests",
+            dependencies: ["RestService"]),
     ])
