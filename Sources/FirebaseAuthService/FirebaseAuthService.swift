@@ -22,4 +22,12 @@ public final class FirebaseAuthService: FirebaseAuthServiceProtocol {
                 }
             }
     }
+
+    public func getUserUid(completion: @escaping (String) -> Void) {
+        if let uid = Auth.auth().currentUser?.uid {
+            completion(uid)
+        } else {
+            completion("")
+        }
+    }
 }

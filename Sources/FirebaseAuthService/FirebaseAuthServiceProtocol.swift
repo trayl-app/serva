@@ -6,4 +6,6 @@ protocol FirebaseAuthServiceProtocol: AnyObject {
         password: String,
         completion: @escaping (Result<AuthDataResult, Error>) -> Void
     )
+
+    func getUserUid(completion: @escaping (String) -> Void)
 }
